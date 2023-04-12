@@ -1,0 +1,719 @@
+@-webkit-keyframes slideIn {
+  from {
+    margin-right: 300%;
+    width: 300%;
+  }
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
+@keyframes slideIn {
+  from {
+    margin-right: 300%;
+    width: 300%;
+  }
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
+}
+@-webkit-keyframes bounceAndColor {
+  from {
+    transform: scale(-100%);
+    border-bottom: 2rem solid #da6c05;
+  }
+  to {
+    transform: scale(-130%);
+    border-bottom: 2rem solid rgba(250, 190, 134, 0.7137254902);
+  }
+}
+@keyframes bounceAndColor {
+  from {
+    transform: scale(-100%);
+    border-bottom: 2rem solid #da6c05;
+  }
+  to {
+    transform: scale(-130%);
+    border-bottom: 2rem solid rgba(250, 190, 134, 0.7137254902);
+  }
+}
+/*so I think we want everything to slide in left to*/
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /*keeps the background from screwing with sizing on mobile devices*/
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /*So we need more mixins for the different shapes that include the background mixin. for sanity purposes, we make the default unit 100px and scale*/
+}
+body .Navbar {
+  /*this works fine to keep stuff up front, the position relative is critical to making the z index work*/
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+  padding: 0.75rem;
+}
+body .Navbar .NavLinks {
+  margin: 0.5rem;
+  justify-content: center;
+}
+body .Navbar .NavLinks a {
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: 0.5s;
+  text-decoration: none;
+  color: black;
+}
+body .Navbar .NavLinks a:hover {
+  background-color: rgba(250, 190, 134, 0.7137254902);
+  cursor: pointer;
+}
+body .landingPage {
+  color: #0d1821;
+  /*this works fine to keep stuff up front, the position relative is critical to making the z index work*/
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+body .landingPage header {
+  text-align: right;
+  margin-top: 10rem;
+  font-size: 550%;
+  -webkit-animation: slideIn 1s;
+  animation: slideIn 1s;
+}
+body .landingPage .divider {
+  height: 2px;
+  width: 100vw;
+  border: 0;
+  background: #0d1821;
+}
+body .landingPage .arrow_set--forAnimation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 5rem;
+  margin-top: 2.3rem;
+}
+body .landingPage .arrow_set--forAnimation .arrow {
+  margin: 0.5rem;
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 2rem solid transparent;
+  border-right: 2rem solid transparent;
+  border-bottom: 2rem solid #da6c05;
+  border-radius: 0.2rem;
+  transform: rotateX(180deg);
+  -webkit-animation: bounceAndColor 2s infinite;
+  animation: bounceAndColor 2s infinite;
+}
+
+.aboutMe {
+  /*this works fine to keep stuff up front, the position relative is critical to making the z index work*/
+  position: relative;
+  z-index: 1;
+  background-color: rgba(250, 190, 134, 0.7137254902);
+  color: #0d1821;
+}
+.aboutMe .aboutMe__Header {
+  margin: 1rem;
+}
+.aboutMe .aboutMe__blurb {
+  margin: 1rem;
+}
+.aboutMe .mySkills__img {
+  height: 4rem;
+  border-radius: 0.3rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  transition: 0.1s;
+}
+.aboutMe .mySkills__img:hover {
+  background-color: rgba(250, 190, 134, 0.7137254902);
+}
+.aboutMe .skillsGallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.projectsPage {
+  background-color: rgba(250, 190, 134, 0.7137254902);
+  color: #0d1821;
+  /*this works fine to keep stuff up front, the position relative is critical to making the z index work*/
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+.projectsPage .Project__List {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  gap: 1rem;
+}
+.projectsPage .Projects__Heading {
+  margin: 1rem;
+}
+.projectsPage .Project__Card {
+  display: flex;
+  padding: 1rem;
+  max-height: -webkit-min-content;
+  max-height: -moz-min-content;
+  max-height: min-content;
+  flex-direction: row;
+  -webkit-animation: slideIn 2s;
+  animation: slideIn 2s;
+  border: 2px solid rgba(46, 45, 45, 0.849);
+  border-radius: 1rem;
+  transition: 0.1s;
+  width: 90%;
+}
+.projectsPage .Project__Card:hover {
+  transform: rotateX(5deg);
+  box-shadow: 0rem 0rem 2rem rgba(250, 190, 134, 0.7137254902);
+  background-color: rgba(250, 190, 134, 0.7137254902);
+}
+.projectsPage .Project__Card .project__title {
+  width: 10rem;
+}
+.projectsPage .Project__Card .project__title {
+  margin: 1rem;
+}
+.projectsPage .Project__Card .project__image {
+  height: 16rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.projectsPage .Project__Card .project__blurb {
+  max-width: 30vw;
+  padding: 0.5rem;
+}
+.projectsPage .Project__Card .project__links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-right: 1rem;
+}
+.projectsPage .Project__Card .project__links .externalLinkLogo__ForLinks {
+  height: 2rem;
+  border-radius: 10%;
+}
+.projectsPage .Project__Card .project__links .githubLogo__ForLinks {
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.contactMe {
+  color: #0d1821;
+  background-color: rgba(250, 190, 134, 0.7137254902);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /*this works fine to keep stuff up front, the position relative is critical to making the z index work*/
+  position: relative;
+  z-index: 1;
+}
+.contactMe .contactMe__links {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+.contactMe .contactMe__heading {
+  text-align: center;
+}
+.contactMe a {
+  color: #0d1821;
+  padding: 1rem;
+}
+.contactMe .Logo__forContacts {
+  height: 2.4rem;
+  border-radius: 10%;
+  transition: 0.1s;
+  padding: 1rem;
+}
+.contactMe .Logo__forContacts:hover {
+  background-color: rgba(250, 190, 134, 0.7137254902);
+}
+
+.background__ObjectGroup {
+  top: 0;
+  position: fixed;
+  transition: 1s;
+}
+.background__ObjectGroup #Object1 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid black;
+  transform: translateX(-30%);
+  z-index: -1;
+}
+.background__ObjectGroup #Object2 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(29, 29, 29);
+  transform: translateX(-20%) translateY(-100%);
+  z-index: -2;
+}
+.background__ObjectGroup #Object3 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(39, 39, 39);
+  transform: translateX(-10%) translateY(-200%);
+  z-index: -3;
+}
+.background__ObjectGroup #Object4 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(49, 49, 49);
+  transform: translateX(0%) translateY(-300%);
+  z-index: -4;
+}
+.background__ObjectGroup #Object5 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(59, 59, 59);
+  transform: translateX(10%) translateY(-400%);
+  z-index: -5;
+}
+.background__ObjectGroup #Object6 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(69, 69, 69);
+  transform: translateX(20%) translateY(-500%);
+  z-index: -6;
+}
+.background__ObjectGroup #Object7 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(79, 79, 79);
+  transform: translateX(30%) translateY(-600%);
+  z-index: -7;
+}
+.background__ObjectGroup #Object8 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(89, 89, 89);
+  transform: translateX(40%) translateY(-700%);
+  z-index: -8;
+}
+.background__ObjectGroup #Object9 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(99, 99, 99);
+  transform: translateX(50%) translateY(-800%);
+  z-index: -9;
+}
+.background__ObjectGroup #Object10 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(109, 109, 109);
+  transform: translateX(60%) translateY(-900%);
+  z-index: -10;
+}
+.background__ObjectGroup #Object11 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(119, 119, 119);
+  transform: translateX(70%) translateY(-1000%);
+  z-index: -11;
+}
+.background__ObjectGroup #Object12 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(129, 129, 129);
+  transform: translateX(80%) translateY(-1100%);
+  z-index: -12;
+}
+.background__ObjectGroup #Object13 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(139, 139, 139);
+  transform: translateX(90%) translateY(-1200%);
+  z-index: -13;
+}
+.background__ObjectGroup #Object14 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(149, 149, 149);
+  transform: translateX(100%) translateY(-1300%);
+  z-index: -14;
+}
+.background__ObjectGroup #Object15 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(159, 159, 159);
+  transform: translateX(110%) translateY(-1400%);
+  z-index: -15;
+}
+.background__ObjectGroup #Object16 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(169, 169, 169);
+  transform: translateX(120%) translateY(-1500%);
+  z-index: -16;
+}
+.background__ObjectGroup #Object17 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(179, 179, 179);
+  transform: translateX(130%) translateY(-1600%);
+  z-index: -17;
+}
+.background__ObjectGroup #Object18 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(189, 189, 189);
+  transform: translateX(140%) translateY(-1700%);
+  z-index: -18;
+}
+.background__ObjectGroup #Object19 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(199, 199, 199);
+  transform: translateX(150%) translateY(-1800%);
+  z-index: -19;
+}
+.background__ObjectGroup #Object20 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(209, 209, 209);
+  transform: translateX(160%) translateY(-1900%);
+  z-index: -20;
+}
+.background__ObjectGroup #Object21 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(219, 219, 219);
+  transform: translateX(170%) translateY(-2000%);
+  z-index: -21;
+}
+.background__ObjectGroup #Object22 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(229, 229, 229);
+  transform: translateX(180%) translateY(-2100%);
+  z-index: -22;
+}
+.background__ObjectGroup #Object23 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(239, 239, 239);
+  transform: translateX(190%) translateY(-2200%);
+  z-index: -23;
+}
+.background__ObjectGroup #Object24 {
+  position: relative;
+  z-index: -1;
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  border-left: 19vw solid rgb(249, 249, 249);
+  transform: translateX(200%) translateY(-2300%);
+  z-index: -24;
+}
+
+@media only screen and (max-width: 500px) {
+  body .Navbar {
+    font-size: 85%;
+  }
+  body .landingPage {
+    font-size: 35%;
+    padding-top: 2rem;
+    margin-bottom: 25rem;
+  }
+  body .landingPage header {
+    padding-top: 5rem;
+  }
+  body .landingPage .divider {
+    display: none;
+  }
+  body .landingPage .arrow_set--forAnimation {
+    transform: scale(40%);
+  }
+  body .projectsPage .Project__Card {
+    flex-direction: column;
+    padding-left: 1vw !important;
+  }
+  body .projectsPage .project__image {
+    max-height: 9em;
+  }
+  body .projectsPage .project__blurb {
+    max-width: 90vw !important;
+  }
+  body .projectsPage .project__links {
+    flex-direction: row !important;
+    margin-top: 0.5rem !important;
+  }
+  body .projectsPage .project__links .githubLogo__ForLinks {
+    margin-right: 0.5rem;
+  }
+  body .aboutMe .aboutMe__blurb {
+    padding-top: 0.5rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+  body .background__ObjectGroup #Object1,
+  body .background__ObjectGroup #Object2,
+  body .background__ObjectGroup #Object3,
+  body .background__ObjectGroup #Object4,
+  body .background__ObjectGroup #Object5,
+  body .background__ObjectGroup #Object6,
+  body .background__ObjectGroup #Object7,
+  body .background__ObjectGroup #Object8,
+  body .background__ObjectGroup #Object9,
+  body .background__ObjectGroup #Object10,
+  body .background__ObjectGroup #Object11,
+  body .background__ObjectGroup #Object12,
+  body .background__ObjectGroup #Object13,
+  body .background__ObjectGroup #Object14,
+  body .background__ObjectGroup #Object15,
+  body .background__ObjectGroup #Object16,
+  body .background__ObjectGroup #Object17,
+  body .background__ObjectGroup #Object18,
+  body .background__ObjectGroup #Object19,
+  body .background__ObjectGroup #Object20,
+  body .background__ObjectGroup #Object21,
+  body .background__ObjectGroup #Object22,
+  body .background__ObjectGroup #Object23,
+  body .background__ObjectGroup #Object24 {
+    border-bottom: 270vw solid transparent;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 1100px) {
+  body .landingPage {
+    padding-top: 2rem;
+  }
+  body .landingPage header {
+    font-size: 360%;
+  }
+  body .landingPage .arrow_set--forAnimation {
+    transform: scale(90%) translateX(25%);
+  }
+  body .projectsPage .Project__Card {
+    flex-direction: column;
+    padding-left: 0.5vw !important;
+  }
+  body .projectsPage .project__image {
+    max-height: 15rem;
+  }
+  body .projectsPage .project__blurb {
+    max-width: 85vw !important;
+  }
+  body .projectsPage .project__links {
+    flex-direction: row !important;
+    margin-top: 0.5rem !important;
+  }
+  body .projectsPage .project__links .githubLogo__ForLinks {
+    margin-right: 0.5rem;
+  }
+  body .background__ObjectGroup #Object1,
+  body .background__ObjectGroup #Object2,
+  body .background__ObjectGroup #Object3,
+  body .background__ObjectGroup #Object4,
+  body .background__ObjectGroup #Object5,
+  body .background__ObjectGroup #Object6,
+  body .background__ObjectGroup #Object7,
+  body .background__ObjectGroup #Object8,
+  body .background__ObjectGroup #Object9,
+  body .background__ObjectGroup #Object10,
+  body .background__ObjectGroup #Object11,
+  body .background__ObjectGroup #Object12,
+  body .background__ObjectGroup #Object13,
+  body .background__ObjectGroup #Object14,
+  body .background__ObjectGroup #Object15,
+  body .background__ObjectGroup #Object16,
+  body .background__ObjectGroup #Object17,
+  body .background__ObjectGroup #Object18,
+  body .background__ObjectGroup #Object19,
+  body .background__ObjectGroup #Object20,
+  body .background__ObjectGroup #Object21,
+  body .background__ObjectGroup #Object22,
+  body .background__ObjectGroup #Object23,
+  body .background__ObjectGroup #Object24 {
+    border-bottom: 270vw solid transparent;
+  }
+} /*# sourceMappingURL=styles.css.map */

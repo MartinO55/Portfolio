@@ -1,0 +1,145 @@
+@media only screen and (max-width: 500px) {
+  body {
+    .Navbar {
+      font-size: 85%;
+    }
+    // font-family: "Times New Roman", Times, serif;
+    .landingPage {
+      header {
+        padding-top: 5rem;
+      }
+      font-size: 35%;
+      padding-top: 2rem;
+      margin-bottom: 25rem;
+      .divider {
+        display: none;
+      }
+      .arrow_set--forAnimation {
+        transform: scale(40%);
+      }
+    }
+
+    .projectsPage {
+      .Project__Card {
+        flex-direction: column;
+        padding-left: 1vw !important;
+      }
+      .project__image {
+        max-height: 9em;
+      }
+      .project__blurb {
+        max-width: 90vw !important; //for some reason this has to be over written here, I can't just redefine it
+      }
+
+      .project__links {
+        flex-direction: row !important;
+        margin-top: 0.5rem !important;
+        .githubLogo__ForLinks {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    .aboutMe {
+      .aboutMe__blurb {
+        padding-top: 0.5rem;
+        padding-left: 1vw;
+        padding-right: 1vw;
+      }
+    }
+
+    .background__ObjectGroup {
+      //for some stupid reason I can't get the child selector to work
+      #Object1,
+      #Object2,
+      #Object3,
+      #Object4,
+      #Object5,
+      #Object6,
+      #Object7,
+      #Object8,
+      #Object9,
+      #Object10,
+      #Object11,
+      #Object12,
+      #Object13,
+      #Object14,
+      #Object15,
+      #Object16,
+      #Object17,
+      #Object18,
+      #Object19,
+      #Object20,
+      #Object21,
+      #Object22,
+      #Object23,
+      #Object24 {
+        border-bottom: 270vw solid transparent; //I think this number works fine
+      }
+    }
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 1100px) {
+  body {
+    //font-family: "Times New Roman", Times, serif; testing purposes only
+
+    .landingPage {
+      header {
+        font-size: 360%;
+      }
+      padding-top: 2rem;
+      .arrow_set--forAnimation {
+        transform: scale(90%) translateX(25%);
+      }
+    }
+    .projectsPage {
+      .Project__Card {
+        flex-direction: column;
+        padding-left: 0.5vw !important;
+      }
+      .project__image {
+        max-height: 15rem;
+      }
+      .project__blurb {
+        max-width: 85vw !important; //for some reason this has to be over written here, I can't just redefine it
+      }
+
+      .project__links {
+        flex-direction: row !important;
+        margin-top: 0.5rem !important;
+        .githubLogo__ForLinks {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    .background__ObjectGroup {
+      //for some stupid reason I can't get the child selector to work
+      #Object1,
+      #Object2,
+      #Object3,
+      #Object4,
+      #Object5,
+      #Object6,
+      #Object7,
+      #Object8,
+      #Object9,
+      #Object10,
+      #Object11,
+      #Object12,
+      #Object13,
+      #Object14,
+      #Object15,
+      #Object16,
+      #Object17,
+      #Object18,
+      #Object19,
+      #Object20,
+      #Object21,
+      #Object22,
+      #Object23,
+      #Object24 {
+        border-bottom: 270vw solid transparent; //I think this number works fine
+      }
+    }
+  }
+}

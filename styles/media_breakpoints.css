@@ -1,0 +1,121 @@
+@media only screen and (max-width: 500px) {
+  body .Navbar {
+    font-size: 85%;
+  }
+  body .landingPage {
+    font-size: 35%;
+    padding-top: 2rem;
+    margin-bottom: 25rem;
+  }
+  body .landingPage header {
+    padding-top: 5rem;
+  }
+  body .landingPage .divider {
+    display: none;
+  }
+  body .landingPage .arrow_set--forAnimation {
+    transform: scale(40%);
+  }
+  body .projectsPage .Project__Card {
+    flex-direction: column;
+    padding-left: 1vw !important;
+  }
+  body .projectsPage .project__image {
+    max-height: 10em;
+  }
+  body .projectsPage .project__blurb {
+    max-width: 90vw !important;
+  }
+  body .projectsPage .project__links {
+    flex-direction: row !important;
+    margin-top: 0.5rem !important;
+  }
+  body .projectsPage .project__links .githubLogo__ForLinks {
+    margin-right: 0.5rem;
+  }
+  body .aboutMe .aboutMe__blurb {
+    padding-top: 0.5rem;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+  body .background__ObjectGroup #Object1,
+body .background__ObjectGroup #Object2,
+body .background__ObjectGroup #Object3,
+body .background__ObjectGroup #Object4,
+body .background__ObjectGroup #Object5,
+body .background__ObjectGroup #Object6,
+body .background__ObjectGroup #Object7,
+body .background__ObjectGroup #Object8,
+body .background__ObjectGroup #Object9,
+body .background__ObjectGroup #Object10,
+body .background__ObjectGroup #Object11,
+body .background__ObjectGroup #Object12,
+body .background__ObjectGroup #Object13,
+body .background__ObjectGroup #Object14,
+body .background__ObjectGroup #Object15,
+body .background__ObjectGroup #Object16,
+body .background__ObjectGroup #Object17,
+body .background__ObjectGroup #Object18,
+body .background__ObjectGroup #Object19,
+body .background__ObjectGroup #Object20,
+body .background__ObjectGroup #Object21,
+body .background__ObjectGroup #Object22,
+body .background__ObjectGroup #Object23,
+body .background__ObjectGroup #Object24 {
+    border-bottom: 270vw solid transparent;
+  }
+}
+@media only screen and (min-width: 501px) and (max-width: 1100px) {
+  body .landingPage {
+    padding-top: 2rem;
+  }
+  body .landingPage header {
+    font-size: 360%;
+  }
+  body .landingPage .arrow_set--forAnimation {
+    transform: scale(90%) translateX(25%);
+  }
+  body .projectsPage .Project__Card {
+    flex-direction: column;
+    padding-left: 1vw !important;
+  }
+  body .projectsPage .project__image {
+    max-height: 22rem;
+  }
+  body .projectsPage .project__blurb {
+    max-width: 90vw !important;
+  }
+  body .projectsPage .project__links {
+    flex-direction: row !important;
+    margin-top: 0.5rem !important;
+  }
+  body .projectsPage .project__links .githubLogo__ForLinks {
+    margin-right: 0.5rem;
+  }
+  body .background__ObjectGroup #Object1,
+body .background__ObjectGroup #Object2,
+body .background__ObjectGroup #Object3,
+body .background__ObjectGroup #Object4,
+body .background__ObjectGroup #Object5,
+body .background__ObjectGroup #Object6,
+body .background__ObjectGroup #Object7,
+body .background__ObjectGroup #Object8,
+body .background__ObjectGroup #Object9,
+body .background__ObjectGroup #Object10,
+body .background__ObjectGroup #Object11,
+body .background__ObjectGroup #Object12,
+body .background__ObjectGroup #Object13,
+body .background__ObjectGroup #Object14,
+body .background__ObjectGroup #Object15,
+body .background__ObjectGroup #Object16,
+body .background__ObjectGroup #Object17,
+body .background__ObjectGroup #Object18,
+body .background__ObjectGroup #Object19,
+body .background__ObjectGroup #Object20,
+body .background__ObjectGroup #Object21,
+body .background__ObjectGroup #Object22,
+body .background__ObjectGroup #Object23,
+body .background__ObjectGroup #Object24 {
+    border-bottom: 270vw solid transparent;
+  }
+}/*# sourceMappingURL=media_breakpoints.css.map */

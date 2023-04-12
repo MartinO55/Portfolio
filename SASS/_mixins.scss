@@ -1,0 +1,68 @@
+@mixin frontItem {
+  /*this works fine to keep stuff up front, the position relative is critical to making the z index work*/
+  position: relative;
+  z-index: 1;
+}
+@mixin background {
+  position: relative;
+
+  z-index: -1;
+}
+@mixin triangle {
+  @include background();
+  width: 0px;
+  height: 0px;
+  /*Override as desired, but one or more of these values must be overriden; 
+    specifically, change ONE border to a color value, and change any of the pixel counts to manipulate the shape of the triangle*/
+  border-left: 100vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+
+  //   &:hover {
+  //     //for example - this impacts each triangle in the background separately, but doesnt work through the foreground elements
+  //     //border-left: 19vw solid red !important;
+  //   }
+}
+@mixin square {
+  /*Scale the x or y axis in the transform function to create a rectangle*/
+  @include background();
+  height: 100px;
+  width: 100px;
+}
+
+@mixin circle {
+  /*Scale the x or y axis in the transform function to create an oval*/
+  @include background();
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+@mixin triangle--BigAcute {
+  @include triangle();
+
+  border-right: 10vw solid transparent;
+  border-bottom: 100vw solid transparent;
+  z-index: -1;
+}
+@mixin projectCard {
+  //so lets call this the first draft - there are a couple of different ways to do this and I'm not sure what my preference is
+  display: flex;
+  padding: 1rem;
+  max-height: min-content;
+  flex-direction: row;
+  animation: slideIn 2s;
+  border: 2px solid rgba(46, 45, 45, 0.849);
+  border-radius: 1rem;
+  transition: 0.1s;
+
+  &:hover {
+    transform: rotateX(5deg);
+    box-shadow: 0rem 0rem 2rem $secondaryColor;
+    background-color: $secondaryColor;
+  }
+
+  .project__title {
+    width: 10rem;
+  }
+}
