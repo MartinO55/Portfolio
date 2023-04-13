@@ -23,6 +23,7 @@ class Sprite {
     };
     this.color = color;
     this.isAttacking;
+    this.health = 100;
   }
 
   draw() {
@@ -95,6 +96,32 @@ function rectangularCollision({ attacker, defender }) {
   );
 }
 
+function determineWinner({ player, enemy, timerID }) {
+  clearTimeout(timerID);
+  document.querySelector("#UIScriptOverlay").style.display = "flex";
+  if (player.health === enemy.health) {
+    document.querySelector("#UIScriptOverlay").innerHTML = "Draw";
+  } else if (player.health > enemy.health) {
+    document.querySelector("#UIScriptOverlay").innerHTML = "Player One Wins";
+  } else if (player.health < enemy.health) {
+    document.querySelector("#UIScriptOverlay").innerHTML = "Player Two Wins";
+  }
+}
+
+let timer = 60;
+let timerID;
+function decreaseTimer() {
+  if (timer > 0) {
+    timerID = setTimeout(decreaseTimer, 1000);
+    timer--;
+    document.querySelector("#timer__clock").innerHTML = timer;
+  }
+  if (timer === 0) {
+    determineWinner({ player, enemy, timerID });
+  }
+}
+
+decreaseTimer();
 function animate() {
   window.requestAnimationFrame(animate);
   c.fillStyle = "black";
@@ -124,6 +151,8 @@ function animate() {
   ) {
     player.isAttacking = false;
     console.log("hit");
+    enemy.health -= 20;
+    document.querySelector("#enemyHealth").style.width = enemy.health + "%";
   }
 
   if (
@@ -132,6 +161,12 @@ function animate() {
   ) {
     enemy.isAttacking = false;
     console.log("player2hit");
+    player.health -= 20;
+    document.querySelector("#playerHealth").style.width = player.health + "%";
+  }
+
+  if (enemy.health <= 0 || player.health <= 0) {
+    determineWinner({ player, enemy, timerID });
   }
 }
 
