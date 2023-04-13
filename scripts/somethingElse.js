@@ -18,6 +18,13 @@ const background = new Sprite({
   imgSrc: "../assets/OakWoodsPixelBackground.png",
 });
 
+const backgroundShop = new Sprite({
+  position: { x: 600, y: 214 },
+  imgSrc: "../assets/shop_anim.png",
+  scale: 2.75,
+  maxFrames: 6,
+});
+
 const player = new Fighter({
   position: { x: 0, y: 0 },
   velocity: { x: 0, y: 0 },
@@ -46,6 +53,7 @@ function animate() {
   c.fillStyle = "black";
   c.fillRect(0, 0, canvas.width, canvas.height);
   background.update();
+  backgroundShop.update();
   player.update();
   enemy.update();
 
