@@ -1,4 +1,4 @@
-import { Fighter, Sprite } from "./classes.js";
+import { Sprite, Fighter } from "./classes.js";
 import {
   rectangularCollision,
   decreaseTimer,
@@ -29,6 +29,32 @@ const player = new Fighter({
   position: { x: 0, y: 0 },
   velocity: { x: 0, y: 0 },
   offset: { x: 0, y: 0 },
+  imgSrc: "../assets/Characters/Samurai/Sprites/Idle.png",
+  maxFrames: 8,
+  scale: 2.5,
+  offset: { x: 215, y: 156 },
+  sprites: {
+    idle: {
+      imgSrc: "../assets/Characters/Samurai/Sprites/Idle.png",
+      maxFrames: 8,
+    },
+    run: {
+      imgSrc: "../assets/Characters/Samurai/Sprites/Run.png",
+      maxFrames: 8,
+    },
+    jump: {
+      imgSrc: "../assets/Characters/Samurai/Sprites/Jump.png",
+      maxFrames: 2,
+    },
+    fall: {
+      imgSrc: "../assets/Characters/Samurai/Sprites/Fall.png",
+      maxFrames: 2,
+    },
+    attack1: {
+      imgSrc: "../assets/Characters/Samurai/Sprites/Attack1.png",
+      maxFrames: 6,
+    },
+  },
 });
 
 const enemy = new Fighter({
@@ -55,16 +81,28 @@ function animate() {
   background.update();
   backgroundShop.update();
   player.update();
-  enemy.update();
+  //enemy.update();
 
   player.velocity.x = 0;
   enemy.velocity.x = 0;
   //player 1 move
+
   if (keys.a.pressed && player.lastKey === "a") {
     player.velocity.x = -5;
+    player.switchSprite("run");
   } else if (keys.d.pressed && player.lastKey === "d") {
     player.velocity.x = 5;
+    player.switchSprite("run");
+  } else {
+    player.switchSprite("idle");
   }
+
+  if (player.velocity.y < 0) {
+    player.switchSprite("jump");
+  } else if (player.velocity.y > 0) {
+    player.switchSprite("fall");
+  }
+
   //player2 move
   if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
     enemy.velocity.x = -5;
