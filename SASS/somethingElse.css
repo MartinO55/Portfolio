@@ -1,31 +1,38 @@
 * {
   box-sizing: border-box;
 }
-* .gameContainer {
+* .centeringContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+* .centeringContainer .gameContainer {
   display: inline-block;
 }
-* .gameContainer .headerContainer {
+* .centeringContainer .gameContainer .headerContainer {
   position: relative;
 }
-* .gameContainer .headerContainer .UIBarHolder {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder {
   position: absolute;
   display: flex;
   align-items: center;
   width: 100%;
   padding: 20px;
 }
-* .gameContainer .headerContainer .UIBarHolder .playerHealthBar__Holder {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder .playerHealthBar__Holder {
   position: relative;
   height: 30px;
   width: 100%;
 }
-* .gameContainer .headerContainer .UIBarHolder .playerHealthBar__Holder .playerHealthBar {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder .playerHealthBar__Holder .playerHealthBar {
   background-color: yellow;
   height: 30px;
   display: flex;
   justify-content: flex-end;
 }
-* .gameContainer .headerContainer .UIBarHolder .playerHealthBar__Holder .playerHealthBar__Cover {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder .playerHealthBar__Holder .playerHealthBar__Cover {
   background-color: blue;
   position: absolute;
   top: 0;
@@ -33,7 +40,7 @@
   bottom: 0;
   width: 100%;
 }
-* .gameContainer .headerContainer .UIBarHolder .timer {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder .timer {
   display: flex;
   background-color: red;
   height: 100px;
@@ -42,16 +49,16 @@
   align-items: center;
   justify-content: center;
 }
-* .gameContainer .headerContainer .UIBarHolder .enemyHealthBar__Holder {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder .enemyHealthBar__Holder {
   position: relative;
   height: 30px;
   width: 100%;
 }
-* .gameContainer .headerContainer .UIBarHolder .enemyHealthBar__Holder .enemyHealthBar {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder .enemyHealthBar__Holder .enemyHealthBar {
   background-color: yellow;
   height: 30px;
 }
-* .gameContainer .headerContainer .UIBarHolder .enemyHealthBar__Holder .enemyHealthBar__Cover {
+* .centeringContainer .gameContainer .headerContainer .UIBarHolder .enemyHealthBar__Holder .enemyHealthBar__Cover {
   background-color: blue;
   position: absolute;
   top: 0;
@@ -59,8 +66,8 @@
   left: 0;
   bottom: 0;
 }
-* .UIScript {
-  display: none;
+* .centeringContainer .UIScript {
+  display: flex;
   align-items: center;
   justify-content: center;
   color: white;
