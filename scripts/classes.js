@@ -64,6 +64,7 @@ export class Fighter extends Sprite {
     maxFrames = 1,
     offset = { x: 0, y: 0 },
     sprites,
+    attackBox = { offset: {}, width: undefined, height: undefined },
   }) {
     super({
       position,
@@ -79,9 +80,9 @@ export class Fighter extends Sprite {
     this.lastKey;
     this.attackBox = {
       position: { x: this.position.x, y: this.position.y },
-      offset,
-      width: 100,
-      height: 50,
+      offset: attackBox.offset,
+      width: attackBox.width,
+      height: attackBox.height,
     };
     this.color = color;
     this.isAttacking;
@@ -90,6 +91,7 @@ export class Fighter extends Sprite {
     this.framesElapsed = 0;
     this.framesHold = 7;
     this.sprites = sprites;
+    this.dead = false;
 
     for (const sprite in this.sprites) {
       sprites[sprite].image = new Image();
@@ -99,10 +101,23 @@ export class Fighter extends Sprite {
 
   update() {
     this.draw();
-    this.animateSprite();
+
+    if (!this.dead) {
+      //console.log("still alive");
+      this.animateSprite();
+    }
 
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
-    this.attackBox.position.y = this.position.y;
+    this.attackBox.position.y = this.position.y + this.attackBox.offset.y;
+
+    //draw attack box4
+
+    // c.fillRect(
+    //   this.attackBox.position.x,
+    //   this.attackBox.position.y,
+    //   this.attackBox.width,
+    //   this.attackBox.height
+    // );
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
@@ -111,26 +126,42 @@ export class Fighter extends Sprite {
       this.velocity.y = 0;
       this.position.y = 415.1;
     } else this.velocity.y += gravity;
-
-    console.log(this.position.y);
   }
-  dw;
+
   attack() {
     this.switchSprite("attack1");
     this.isAttacking = true;
-    setTimeout(() => {
-      this.isAttacking = false;
-    }, 100);
+  }
+
+  takeHit() {
+    this.health -= 20;
+    if (this.health <= 0) {
+      this.switchSprite("death");
+      // console.log(this.dead, "health:", this.health);
+    } else this.switchSprite("takeHit");
   }
 
   switchSprite(sprite) {
+    if (this.image === this.sprites.death.image) {
+      if (this.currentFrame === this.sprites.death.maxFrames - 1)
+        // console.log("dead");
+        this.dead = true;
+      return;
+    }
+    //override for attacking
     if (
       //add an or case if you add multiple attack types
       this.image === this.sprites.attack1.image &&
       this.currentFrame < this.sprites.attack1.maxFrames - 1
     )
       return;
-
+    // overriding for taking hits
+    if (
+      this.image === this.sprites.takeHit.image &&
+      this.currentFrame < this.sprites.takeHit.maxFrames - 1
+    )
+      return;
+    //so we might have to add cases for run right and run left, and then use this.image.setattribute("style", "transform ")
     switch (sprite) {
       case "idle":
         if (this.image != this.sprites.idle.image) {
@@ -164,6 +195,21 @@ export class Fighter extends Sprite {
         if (this.image != this.sprites.attack1.image) {
           this.image = this.sprites.attack1.image;
           this.maxFrames = this.sprites.attack1.maxFrames;
+          this.currentFrame = 0;
+        }
+        break;
+      case "takeHit":
+        if (this.image != this.sprites.takeHit.image) {
+          this.image = this.sprites.takeHit.image;
+          this.maxFrames = this.sprites.takeHit.maxFrames;
+          this.currentFrame = 0;
+        }
+        break;
+      case "death":
+        if (this.image != this.sprites.death.image) {
+          // console.log("case death");
+          this.image = this.sprites.death.image;
+          this.maxFrames = this.sprites.death.maxFrames;
           this.currentFrame = 0;
         }
         break;

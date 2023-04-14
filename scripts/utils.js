@@ -1,3 +1,5 @@
+import { player, enemy } from "./somethingElse.js";
+
 export function rectangularCollision({ attacker, defender }) {
   return (
     attacker.attackBox.position.x + attacker.attackBox.width >=
@@ -22,7 +24,7 @@ export function determineWinner({ player, enemy, timerID }) {
 }
 
 let timer = 60;
-let timerID;
+export let timerID;
 export function decreaseTimer() {
   if (timer > 0) {
     timerID = setTimeout(decreaseTimer, 1000);
