@@ -6,6 +6,7 @@ import {
   timerID,
 } from "./utils.js";
 
+//rationalise these imports
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
