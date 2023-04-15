@@ -14,12 +14,8 @@ Sincerely,
 
 Martin Olson
 
-## Links
-
-Main repo: <https://github.com/MartinO55/nology_portfolio>
-Live Site: <https://martino55.github.io/nology_portfolio/>
-
 ## Techstack
 
 - HTML
 - CSS/SCSS
+- Javascript
