@@ -106,7 +106,7 @@ export const enemy = new Fighter({
       maxFrames: 7,
     },
   },
-  attackBox: { offset: { x: 100, y: 50 }, width: 140, height: 50 },
+  attackBox: { offset: { x: -150, y: 50 }, width: 150, height: 50 },
 });
 
 const keys = {
