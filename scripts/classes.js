@@ -1,6 +1,6 @@
 //so this is now running... BUT: canvas and c are defined twice, and we had to use the module key in the html so we run into the mime error again
-const canvas = document.querySelector("canvas");
-const c = canvas.getContext("2d");
+export const canvas = document.querySelector("canvas");
+export const c = canvas.getContext("2d");
 
 const gravity = 0.7;
 
@@ -103,7 +103,6 @@ export class Fighter extends Sprite {
     this.draw();
 
     if (!this.dead) {
-      //console.log("still alive");
       this.animateSprite();
     }
 
@@ -112,12 +111,12 @@ export class Fighter extends Sprite {
 
     //draw attack box4
 
-    c.fillRect(
-      this.attackBox.position.x,
-      this.attackBox.position.y,
-      this.attackBox.width,
-      this.attackBox.height
-    );
+    // c.fillRect(
+    //   this.attackBox.position.x,
+    //   this.attackBox.position.y,
+    //   this.attackBox.width,
+    //   this.attackBox.height
+    // );
 
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;

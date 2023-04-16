@@ -1,4 +1,4 @@
-import { Sprite, Fighter } from "./classes.js";
+import { Sprite, Fighter, canvas, c } from "./classes.js";
 import {
   rectangularCollision,
   decreaseTimer,
@@ -7,8 +7,6 @@ import {
 } from "./utils.js";
 
 //rationalise these imports
-const canvas = document.querySelector("canvas");
-const c = canvas.getContext("2d");
 
 canvas.width = 1024;
 canvas.height = 576;
@@ -28,7 +26,7 @@ const backgroundShop = new Sprite({
 });
 
 export const player = new Fighter({
-  position: { x: 0, y: 0 },
+  position: { x: 100, y: 0 },
   velocity: { x: 0, y: 0 },
   offset: { x: 0, y: 0 },
   imgSrc: "../assets/Characters/Samurai/Sprites/Idle.png",
@@ -69,7 +67,7 @@ export const player = new Fighter({
 });
 
 export const enemy = new Fighter({
-  position: { x: 400, y: 100 },
+  position: { x: 900, y: 100 },
   velocity: { x: 0, y: 0 },
   offset: { x: -50, y: 0 },
   imgSrc: "../assets/Characters/Ninja/Sprites/Idle.png",
