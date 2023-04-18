@@ -1,10 +1,10 @@
-import { Sprite, Fighter, canvas, c } from "./classes.js";
+import { Sprite, Fighter, canvas, c } from "./scripts/classes.js";
 import {
   rectangularCollision,
   decreaseTimer,
   determineWinner,
   timerID,
-} from "./utils.js";
+} from "./scripts/utils.js";
 
 //rationalise these imports
 

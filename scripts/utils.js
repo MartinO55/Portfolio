@@ -1,4 +1,4 @@
-import { player, enemy } from "./somethingElse.js";
+import { player, enemy } from "../somethingElse.js";
 
 export function rectangularCollision({ attacker, defender }) {
   return (
