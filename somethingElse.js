@@ -6,8 +6,6 @@ import {
   timerID,
 } from "./scripts/utils.js";
 
-//rationalise these imports
-
 canvas.width = 1024;
 canvas.height = 576;
 
